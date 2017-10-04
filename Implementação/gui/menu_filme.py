@@ -1,7 +1,61 @@
 from logica import filme
 
-def exibir_menu_filme():
-    run_usuario = True
+def imprimir_filme(filme):
+    print ("Codigo: ", filme[0])
+    print ("Titulo: ", filme[1])
+    for g in filme[2]:
+        print("Genero: ", g)
+    print ("Ano  .: ", filme[3])
+    print ()
+
+def menu_adicionar():
+    print ("\nAdicionar filme \n")
+    titulo = str(input("Titulo: "))
+    print ("Favor separar os generos por \";\"")
+    genero = str(input("Genero: "))
+    generos = []
+    for g in genero.split(";"):
+        generos.append(g)
+    ano = int(input("Ano  .: "))
+    filme.adicionar_filme(titulo, generos, ano)
+
+def menu_listar():
+    print ("\nListar filmes \n")
+    filmes = filme.listar_filmes()
+    for f in filmes:
+        imprimir_filme(f)
+    
+def menu_buscar():
+    print ("\nBuscar filme por código \n")
+    cod = int(input("Cod: "))
+    f = filme.buscar_filme(cod)
+    if (f == None):
+        print ("Filme não encontrado")
+    else:
+        imprimir_filme(f)
+        
+def menu_buscar_por_genero():
+    print ("\nBuscar filme por genero \n")
+    genero = str(input("Genero: "))
+    f = filme.buscar_filmes_por_genero(genero)
+    if (f == None):
+        print ("Filme não encontrado")
+    else:
+        for f2 in f:
+            imprimir_filme(f2)
+
+def menu_remover():
+    print ("\nRemover Filme \n")
+    cod = int(input("Cod: "))
+    f = filme.remover_filme(cod)
+    if (f == False):
+        print ("Filme não encontrado")
+    else:
+        print ("Filme removido")
+
+
+def mostrar_menu():
+    run_filme = True
     menu = ("\n----------------\n"+
              "(1) Adicionar novo filme \n" +
              "(2) Listar filmes \n" +
@@ -11,12 +65,12 @@ def exibir_menu_filme():
              "(0) Voltar\n"+
             "----------------")
     
-    while run_usuario:
+    while run_filme:
         print(menu)
         op = input("Digite sua escolha:")
     
         if op == "0":
-            run_usuario = False
+            run_filme = False
         elif op == "1":
             menu_adicionar()
         elif op == "2":
@@ -24,6 +78,8 @@ def exibir_menu_filme():
         elif op == "3":
             menu_buscar()
         elif op == "4":
+            menu_buscar_por_genero()
+        elif op == "5":
             menu_remover()
         else:
             print("Escolha inválida!")

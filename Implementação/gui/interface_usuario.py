@@ -1,8 +1,8 @@
 from gui import menu_usuario
-from gui import usuario
+from logica import usuario
 
 from gui import menu_filme
-from gui import filme
+from logica import filme
 
 def iniciar_modulos():
     usuario.iniciar_usuarios()
@@ -25,7 +25,7 @@ def mostrar_menu():
         if op == "0":
             rodando = False
         elif op == "1":
-            menu_usuario.mostrar_menu()
+            menu_filme.mostrar_menu()
         elif op == "2":
             menu_usuario.mostrar_menu()
         else:

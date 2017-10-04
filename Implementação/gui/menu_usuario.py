@@ -1,6 +1,6 @@
 from logica import usuario
 
-def pedir_cpf()
+def pedir_cpf():
     cpf = ""
     print("O CPF DEVE SER APENAS NÚMEROS")
     while len(cpf) != 11:
@@ -35,18 +35,18 @@ def menu_buscar():
     if (u == None):
         print ("Usuário não encontrado")
     else:
-        imprimir_usuario(p)
+        imprimir_usuario(u)
 
 def menu_remover():
     print ("\nRemover Usuario \n")
     cpf = pedir_cpf()
     u = usuario.remover_usuario(cpf)
-    if (p == False):
+    if (u == False):
         print ("Usuário não encontrado")
     else:
         print ("Usuário removido")
 
-def exibir_menu_usuario():
+def mostrar_menu():
     run_usuario = True
     menu = ("\n----------------\n"+
              "(1) Adicionar novo usuário \n" +
