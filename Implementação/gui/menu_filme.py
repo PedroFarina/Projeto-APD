@@ -1,5 +1,13 @@
 from logica import filme
 
+def pedir_cpf():
+    cpf = ""
+    print("O CPF DEVE SER APENAS NÚMEROS")
+    while len(cpf) != 11:
+        cpf = str(input("CPF .: "))
+    cpf = cpf[:3] + "." + cpf[3:6] + "." + cpf[6:9] + "-" + cpf[-2:]
+    return cpf
+
 def imprimir_filme(filme):
     print ("Codigo: ", filme[0])
     print ("Titulo: ", filme[1])
@@ -53,7 +61,12 @@ def menu_remover():
     else:
         print ("Filme removido")
 
-
+def menu_reproduzir():
+    cod = int(input("Digite o código do filme."))
+    cpf = pedir_cpf()
+    filme.reproduzir(cod, cpf)
+    print("O filme foi reproduzido.")
+    
 def mostrar_menu():
     run_filme = True
     menu = ("\n----------------\n"+
@@ -62,6 +75,7 @@ def mostrar_menu():
              "(3) Buscar filme por código \n" +
              "(4) Buscar filme por gênero \n" +
              "(5) Remover filme \n" +
+             "(6) Assistir filme \n"
              "(0) Voltar\n"+
             "----------------")
     
@@ -81,5 +95,7 @@ def mostrar_menu():
             menu_buscar_por_genero()
         elif op == "5":
             menu_remover()
+        elif op == "6":
+            menu_reproduzir()
         else:
             print("Escolha inválida!")

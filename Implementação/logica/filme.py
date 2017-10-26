@@ -2,6 +2,10 @@ filmes = []
 
 codigo_geral = 0
 
+def reproduzir(cod_filme, cpf):
+    from logica import historico
+    historico.registrar_filme_assistido(cod_filme, cpf)
+    
 def adicionar_filme (titulo, generos, ano):
     filme = []
     filme.append(_gerar_codigo())
