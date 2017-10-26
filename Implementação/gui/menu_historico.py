@@ -9,8 +9,10 @@ def pedir_cpf():
     return cpf
 
 def imprimir_historico(historico):
-    print ("Cod Filme : ", historico[0])
-    print ("CPF     ..: ",  historico[1])
+    print ("Cod Filme  .:", historico[0][0])
+    print ("Titulo Filme:", historico[0][1])
+    print ("CPF       ..:",  historico[1][0])
+    print ("Nome      ..:", historico[1][1])
     print ()
 
 def menu_adicionar():

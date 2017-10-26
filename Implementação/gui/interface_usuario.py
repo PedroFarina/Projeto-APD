@@ -7,14 +7,14 @@ from logica import filme
 from gui import menu_historico
 from logica import historico
 
-from gui import menu_planos
-from logica import planos
+from gui import menu_plano
+from logica import plano
 
 def iniciar_modulos():
     usuario.iniciar_usuarios()
     filme.iniciar_filmes()
     historico.iniciar_historicos()
-    planos.iniciar_planos()
+    plano.iniciar_planos()
     
 def mostrar_menu():    
     iniciar_modulos()
@@ -25,7 +25,7 @@ def mostrar_menu():
              "(1) Menu Filme \n" +
              "(2) Menu Usuario \n" +
              "(3) Menu Historico \n" +
-             "(4) Menu Planos \n" +
+             "(4) Menu Plano \n" +
              "(0) Sair\n"+
             "----------------")
     while rodando:
@@ -41,7 +41,7 @@ def mostrar_menu():
         elif op == "3":
             menu_historico.mostrar_menu()
         elif op == "4":
-            menu_planos.mostrar_menu()
+            menu_plano.mostrar_menu()
         else:
             print("Escolha inválida!")
         
